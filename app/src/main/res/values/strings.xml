@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">aac</string>
+
+    <string name="greet_full_sentence">%s이는 %d살</string>
 </resources>

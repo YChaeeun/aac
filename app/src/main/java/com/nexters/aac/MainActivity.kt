@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val item = ItemModel("chaeeun", 24)
+        val item = ItemModel("채은", 24)
         binding.setVariable(BR.item, item)
         binding.executePendingBindings()
     }
