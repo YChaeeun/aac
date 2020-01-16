@@ -7,12 +7,17 @@ import com.nexters.aac.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding : ActivityMainBinding
+
+    val intArray:Array<Int> = arrayOf(1,2)
+    val strArray:Array<String> = arrayOf("하나", "둘")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val item = ItemModel("채은", 24)
-        binding.setVariable(BR.item, item)
-        binding.executePendingBindings()
+        binding.array = this
+
+        binding.item = ItemModel("채은", 24)
     }
 }
