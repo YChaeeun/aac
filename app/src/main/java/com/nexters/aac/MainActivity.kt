@@ -12,12 +12,16 @@ class MainActivity : AppCompatActivity() {
     val intArray:Array<Int> = arrayOf(1,2)
     val strArray:Array<String> = arrayOf("하나", "둘")
 
+    val strList = mutableListOf<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.array = this
+        strList.add("셋")
 
+        // dataBinding
+        binding.data = this
         binding.item = ItemModel("채은", 24)
     }
 }
