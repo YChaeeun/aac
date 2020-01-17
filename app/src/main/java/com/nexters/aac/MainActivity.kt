@@ -38,4 +38,17 @@ class MainActivity : AppCompatActivity() {
     fun onClickBtn(view: View){
         Toast.makeText(this, "btnClick_two",Toast.LENGTH_SHORT).show()
     }
+
+    // eventBinding - Listener
+    fun onClickListener1(){
+        Toast.makeText(this, "Listener1",Toast.LENGTH_SHORT).show()
+    }
+
+    fun onClickListener2(item : ItemModel){
+        Toast.makeText(this, "Listener2 "+item.name,Toast.LENGTH_SHORT).show()
+    }
+
+    fun onClickListener3(view:View, item:ItemModel){
+        Toast.makeText(this, "Listener3 "+item.age,Toast.LENGTH_SHORT).show()
+    }
 }
