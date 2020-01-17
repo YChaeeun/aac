@@ -1,111 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="item"
             type="com.nexters.aac.ItemModel" />
+
         <variable
             name="data"
             type="com.nexters.aac.MainActivity" />
     </data>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".MainActivity">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/txt_one"
-                tools:text="HELLO"
-                android:textSize="@dimen/txt_size"
-                android:text="@{item.name}"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="@{item.name}"
+                android:textSize="@dimen/txt_size"
+                tools:text="HELLO" />
+
             <TextView
                 android:id="@+id/txt_two"
-                tools:text="HI"
-                android:textSize="@dimen/txt_size"
-                android:text="@{Integer.toString(item.age)}"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="@{Integer.toString(item.age)}"
+                android:textSize="@dimen/txt_size"
+                tools:text="HI" />
+
             <TextView
                 android:id="@+id/txt_three"
-                tools:text="문장"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@{@color/colorAccent}"
                 android:text="@{@string/greet_full_sentence(item.name, item.age)}"
                 android:textSize="@dimen/txt_size"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                tools:text="문장" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
-                tools:text="숫자"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@{Integer.toString(data.intArray[0])}"
                 android:textSize="@dimen/txt_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                tools:text="숫자" />
+
             <TextView
-                tools:text="한글"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@{data.strArray[1]}"
                 android:textSize="@dimen/txt_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                tools:text="한글" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
-                tools:text="리스트"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@{data.strList[0]}"
                 android:textSize="@dimen/txt_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                tools:text="리스트" />
         </LinearLayout>
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btn_one"
-                android:text="버튼_1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="버튼_1" />
+
             <Button
-                android:text="버튼_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="@{data::onClickBtn}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:text="버튼_2" />
         </LinearLayout>
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <Button
-                android:text="리스너_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="@{()->data.onClickListener1()}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:text="리스너_1" />
+
             <Button
-                android:text="리스너_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:onClick="@{()->data.onClickListener2(item)}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:text="리스너_2" />
+
             <Button
-                android:text="리스너_3"
-                android:onClick="@{(view)->data.onClickListener3(view,item)}"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:onClick="@{(view)->data.onClickListener3(view,item)}"
+                android:text="리스너_3" />
         </LinearLayout>
     </LinearLayout>
-
 </layout>
