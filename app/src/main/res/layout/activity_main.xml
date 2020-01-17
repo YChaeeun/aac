@@ -11,6 +11,10 @@
         <variable
             name="data"
             type="com.nexters.aac.MainActivity" />
+
+        <variable
+            name="observable"
+            type="com.nexters.aac.ItemObservableField" />
     </data>
 
     <LinearLayout
@@ -123,6 +127,39 @@
                 android:layout_height="wrap_content"
                 android:onClick="@{(view)->data.onClickListener3(view,item)}"
                 android:text="리스너_3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{observable.city}"
+                android:textSize="@dimen/txt_size"
+                tools:text="도시" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Integer.toString(observable.birthYear)}"
+                android:textSize="@dimen/txt_size"
+                tools:text="연도" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->observable.onClickChangeProperty1()}"
+                android:text="변경_1" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{observable::onClickChangeProperty2}"
+                android:text="변경_2" />
+
         </LinearLayout>
     </LinearLayout>
 </layout>

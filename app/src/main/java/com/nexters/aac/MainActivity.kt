@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         // dataBinding
         binding.data = this@MainActivity
         binding.item = ItemModel("채은", 24)
+        binding.observable = ItemObservableField()
 
         // eventBinding
         binding.btnOne.setOnClickListener {
