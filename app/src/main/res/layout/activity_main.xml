@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="vm"
-            type="com.nexters.aac.ui.MainViewModel"/>
+            type="com.nexters.aac.ui.MainViewModel" />
     </data>
 
     <LinearLayout
@@ -16,12 +18,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{vm.greeting}"
-            android:textSize="80sp"/>
+            android:textSize="80sp" />
 
         <Button
-            android:text="영어로"
-            android:onClick="@{()->vm.click()}"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> vm.makeBtnDisable()}"
+            android:text="버튼 클릭 시 아래 버튼 비활성화" />
+
+        <Button
+            app:isBtnEnabled="@{vm.isEnable}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_enable_selector"
+            android:text="버튼"
+            android:textColor="#ffffff" />
     </LinearLayout>
 </layout>
