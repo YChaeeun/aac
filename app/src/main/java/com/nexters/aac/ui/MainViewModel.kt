@@ -1,5 +1,6 @@
 package com.nexters.aac.ui
 
+import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,6 +12,8 @@ class MainViewModel : ViewModel(){
 
     private val _isEnable = MutableLiveData<Boolean>().apply{value=true}
     val isEnable : LiveData<Boolean> get() = _isEnable
+
+    val string = ObservableField<String>()
 
     fun changeGreeting(greets: String){
         _greeting.value = greets
