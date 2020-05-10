@@ -1,165 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <variable
-            name="item"
-            type="com.nexters.aac.ItemModel" />
-
-        <variable
-            name="data"
-            type="com.nexters.aac.MainActivity" />
-
-        <variable
-            name="observable"
-            type="com.nexters.aac.ItemObservableField" />
+            name="vm"
+            type="com.nexters.aac.ui.MainViewModel"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="@{vm.greeting}"
+            android:textSize="80sp"/>
 
-            <TextView
-                android:id="@+id/txt_one"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{item.name}"
-                android:textSize="@dimen/txt_size"
-                tools:text="HELLO" />
-
-            <TextView
-                android:id="@+id/txt_two"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{Integer.toString(item.age)}"
-                android:textSize="@dimen/txt_size"
-                tools:text="HI" />
-
-            <TextView
-                android:id="@+id/txt_three"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@{@color/colorAccent}"
-                android:text="@{@string/greet_full_sentence(item.name, item.age)}"
-                android:textSize="@dimen/txt_size"
-                tools:text="문장" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{Integer.toString(data.intArray[0])}"
-                android:textSize="@dimen/txt_size"
-                tools:text="숫자" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{data.strArray[1]}"
-                android:textSize="@dimen/txt_size"
-                tools:text="한글" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{data.strList[0]}"
-                android:textSize="@dimen/txt_size"
-                tools:text="리스트" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_one"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="버튼_1" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{data::onClickBtn}"
-                android:text="버튼_2" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{()->data.onClickListener1()}"
-                android:text="리스너_1" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{()->data.onClickListener2(item)}"
-                android:text="리스너_2" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{(view)->data.onClickListener3(view,item)}"
-                android:text="리스너_3" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{observable.city}"
-                android:textSize="@dimen/txt_size"
-                tools:text="도시" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{Integer.toString(observable.birthYear)}"
-                android:textSize="@dimen/txt_size"
-                tools:text="연도" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{()->observable.onClickChangeProperty1()}"
-                android:text="변경_1" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{observable::onClickChangeProperty2}"
-                android:text="변경_2" />
-
-        </LinearLayout>
+        <Button
+            android:text="영어로"
+            android:onClick="@{()->vm.click()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </layout>
