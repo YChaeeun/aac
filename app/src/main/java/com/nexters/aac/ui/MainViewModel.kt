@@ -15,12 +15,19 @@ class MainViewModel : ViewModel(){
 
     val string = ObservableField<String>()
 
+    private val _click = MutableLiveData<Boolean>(false)
+    val click : LiveData<Boolean> get() = _click
+
     fun changeGreeting(greets: String){
         _greeting.value = greets
     }
 
     fun makeBtnDisable(){
         _isEnable.value = false
+    }
+
+    fun btnClickEvent(){
+        _click.value = true
     }
 
 }

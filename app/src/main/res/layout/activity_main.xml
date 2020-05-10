@@ -7,6 +7,8 @@
         <variable
             name="vm"
             type="com.nexters.aac.ui.MainViewModel" />
+
+        <import type="android.view.View" />
     </data>
 
     <LinearLayout
@@ -14,16 +16,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{vm.greeting}"
-            android:textSize="50sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.greeting}"
+                android:textSize="50sp"
+                android:visibility="@{vm.click? View.VISIBLE: View.INVISIBLE}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> vm.btnClickEvent()}"
+                android:text="show" />
+
+
+        </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,31 +49,32 @@
                 android:text="버튼 클릭 시 옆 버튼 비활성화" />
 
             <Button
-                app:isBtnEnabled="@{vm.isEnable}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_enable_selector"
                 android:text="버튼"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                app:isBtnEnabled="@{vm.isEnable}" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
             <EditText
-                android:hint="텍스트 입력하세요 "
-                android:text="@={vm.string}"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:hint="텍스트 입력하세요 "
+                android:text="@={vm.string}" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@{vm.string}"
                 android:textColor="#1958b0"
-                android:textSize="30sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textSize="30sp" />
 
         </LinearLayout>
 
